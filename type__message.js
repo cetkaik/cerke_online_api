@@ -1,11 +1,12 @@
+"use strict";
 var type__message;
 (function (type__message) {
-    var Color;
+    let Color;
     (function (Color) {
         Color[Color["Kok1"] = 0] = "Kok1";
         Color[Color["Huok2"] = 1] = "Huok2"; // Black, 黒
     })(Color = type__message.Color || (type__message.Color = {}));
-    var Profession;
+    let Profession;
     (function (Profession) {
         Profession[Profession["Nuak1"] = 0] = "Nuak1";
         Profession[Profession["Kauk2"] = 1] = "Kauk2";
@@ -18,7 +19,7 @@ var type__message;
         Profession[Profession["Uai1"] = 8] = "Uai1";
         Profession[Profession["Io"] = 9] = "Io";
     })(Profession = type__message.Profession || (type__message.Profession = {}));
-    var AbsoluteRow;
+    let AbsoluteRow;
     (function (AbsoluteRow) {
         AbsoluteRow[AbsoluteRow["A"] = 0] = "A";
         AbsoluteRow[AbsoluteRow["E"] = 1] = "E";
@@ -30,7 +31,7 @@ var type__message;
         AbsoluteRow[AbsoluteRow["AU"] = 7] = "AU";
         AbsoluteRow[AbsoluteRow["IA"] = 8] = "IA";
     })(AbsoluteRow = type__message.AbsoluteRow || (type__message.AbsoluteRow = {}));
-    var AbsoluteColumn;
+    let AbsoluteColumn;
     (function (AbsoluteColumn) {
         AbsoluteColumn[AbsoluteColumn["K"] = 0] = "K";
         AbsoluteColumn[AbsoluteColumn["L"] = 1] = "L";

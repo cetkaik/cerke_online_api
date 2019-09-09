@@ -112,9 +112,12 @@ namespace type__message {
         "access_token": string
     }
 
-    export type Ret_RandomPoll = Ret_RandomEntry | {
+    export type Ret_RandomPoll = {
         legal: false,
         whyIllegal: string
+    } | {
+        legal: true,
+        ret: Ret_RandomEntry
     };
 
 }

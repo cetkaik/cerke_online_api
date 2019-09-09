@@ -107,9 +107,14 @@ namespace type__message {
         dat: WhetherWaterEntryHappened
     };
     
-    export type RandomEntry = {
+    export type Ret_RandomEntry = {
         "state": "in_waiting_list" | "let_the_game_begin",
         "access_token": string
     }
+
+    export type Ret_RandomPoll = Ret_RandomEntry | {
+        legal: false,
+        whyIllegal: string
+    };
 
 }

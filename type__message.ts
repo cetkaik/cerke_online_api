@@ -120,4 +120,12 @@ namespace type__message {
         ret: Ret_RandomEntry
     };
 
+    export type Ret_RandomCancel = {
+        legal: false;
+        whyIllegal: string
+    } | {
+        legal: true,
+        cancellable: boolean
+    }
+
 }

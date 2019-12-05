@@ -49,10 +49,17 @@ namespace type__message {
         };
     }
 
-    export interface TamMove {
+    export type TamMove = {
         type: 'TamMove'
-        stepStyle: 'NoStep' | 'StepsDuringFormer' | 'StepsDuringLatter';
+        stepStyle: 'NoStep';
         src: AbsoluteCoord;
+        firstDest: AbsoluteCoord;
+        secondDest: AbsoluteCoord;
+    } | {
+        type: 'TamMove'
+        stepStyle: 'StepsDuringFormer' | 'StepsDuringLatter';
+        src: AbsoluteCoord;
+        step: AbsoluteCoord;
         firstDest: AbsoluteCoord;
         secondDest: AbsoluteCoord;
     }

@@ -2,7 +2,7 @@
 namespace type__message {
     export enum Color {
         Kok1, // Red, 赤
-        Huok2 // Black, 黒
+        Huok2, // Black, 黒
     }
 
     export enum Profession {
@@ -19,30 +19,28 @@ namespace type__message {
     }
 
     export enum AbsoluteRow {
-        A, E, I, U, O, Y, AI, AU, IA
+        A, E, I, U, O, Y, AI, AU, IA,
     }
 
     export enum AbsoluteColumn {
-        K, L, N, T, Z, X, C, M, P
+        K, L, N, T, Z, X, C, M, P,
     }
 
     export type AbsoluteCoord = [AbsoluteRow, AbsoluteColumn];
 
-
-
     export interface NormalNonTamMove {
-        type: 'NonTamMove';
+        type: "NonTamMove";
         data: {
-            type: 'FromHand';
+            type: "FromHand";
             color: Color;
             prof: Profession;
             dest: AbsoluteCoord;
         } | {
-            type: 'SrcDst';
+            type: "SrcDst";
             src: AbsoluteCoord;
             dest: AbsoluteCoord;
         } | {
-            type: 'SrcStepDstFinite';
+            type: "SrcStepDstFinite";
             src: AbsoluteCoord;
             step: AbsoluteCoord;
             dest: AbsoluteCoord;
@@ -50,34 +48,34 @@ namespace type__message {
     }
 
     export type TamMove = {
-        type: 'TamMove'
-        stepStyle: 'NoStep';
+        type: "TamMove"
+        stepStyle: "NoStep";
         src: AbsoluteCoord;
         firstDest: AbsoluteCoord;
         secondDest: AbsoluteCoord;
     } | {
-        type: 'TamMove'
-        stepStyle: 'StepsDuringFormer' | 'StepsDuringLatter';
+        type: "TamMove"
+        stepStyle: "StepsDuringFormer" | "StepsDuringLatter";
         src: AbsoluteCoord;
         step: AbsoluteCoord;
         firstDest: AbsoluteCoord;
         secondDest: AbsoluteCoord;
-    }
+    };
 
     export type NormalMove = NormalNonTamMove | TamMove;
 
     export interface InfAfterStep {
-        type: 'InfAfterStep',
-        color: Color,
-        prof: Profession,
-        src: AbsoluteCoord,
-        step: AbsoluteCoord,
-        plannedDirection: AbsoluteCoord
+        type: "InfAfterStep";
+        color: Color;
+        prof: Profession;
+        src: AbsoluteCoord;
+        step: AbsoluteCoord;
+        plannedDirection: AbsoluteCoord;
     }
 
     export interface AfterHalfAcceptance {
-        type: 'AfterHalfAcceptance',
-        dest: AbsoluteCoord | null
+        type: "AfterHalfAcceptance";
+        dest: AbsoluteCoord | null;
         /* null: hands over the turn to the opponent */
     }
 
@@ -85,46 +83,46 @@ namespace type__message {
 
     export type Ret_InfAfterStep = {
         legal: false,
-        whyIllegal: string
+        whyIllegal: string,
     } | {
         legal: true,
-        ciurl: Ciurl
-    }
+        ciurl: Ciurl,
+    };
 
     export type WhetherWaterEntryHappened = {
         waterEntryHappened: true,
-        ciurl: Ciurl
+        ciurl: Ciurl,
     } | {
-        waterEntryHappened: false
+        waterEntryHappened: false,
     };
-    
+
     export type Ret_NormalMove = {
         legal: false,
-        whyIllegal: string
+        whyIllegal: string,
     } | {
         legal: true,
-        dat: WhetherWaterEntryHappened
+        dat: WhetherWaterEntryHappened,
     };
-    
+
     export type Ret_AfterHalfAcceptance = {
         legal: false,
-        whyIllegal: string
+        whyIllegal: string,
     } | {
         legal: true,
-        dat: WhetherWaterEntryHappened
+        dat: WhetherWaterEntryHappened,
     };
-    
-    export type Ret_RandomEntry = {
-        "state": "in_waiting_list" | "let_the_game_begin",
-        "access_token": string
+
+    export interface Ret_RandomEntry {
+        "state": "in_waiting_list" | "let_the_game_begin";
+        "access_token": string;
     }
 
     export type Ret_RandomPoll = {
         legal: false,
-        whyIllegal: string
+        whyIllegal: string,
     } | {
         legal: true,
-        ret: Ret_RandomEntry
+        ret: Ret_RandomEntry,
     };
 
     export type Ret_RandomCancel = {
@@ -132,7 +130,7 @@ namespace type__message {
         whyIllegal: string
     } | {
         legal: true,
-        cancellable: boolean
-    }
+        cancellable: boolean,
+    };
 
 }

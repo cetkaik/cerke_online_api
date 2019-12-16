@@ -4,7 +4,7 @@ var type__message;
     let Color;
     (function (Color) {
         Color[Color["Kok1"] = 0] = "Kok1";
-        Color[Color["Huok2"] = 1] = "Huok2"; // Black, 黒
+        Color[Color["Huok2"] = 1] = "Huok2";
     })(Color = type__message.Color || (type__message.Color = {}));
     let Profession;
     (function (Profession) {

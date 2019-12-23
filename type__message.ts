@@ -18,13 +18,9 @@ namespace type__message {
         Io, // King, 王, ales
     }
 
-    export enum AbsoluteRow {
-        A, E, I, U, O, Y, AI, AU, IA,
-    }
+    export type AbsoluteRow = "A" | "E" | "I" | "U" | "O" | "Y" | "AI" | "AU" | "IA";
 
-    export enum AbsoluteColumn {
-        K, L, N, T, Z, X, C, M, P,
-    }
+    export type AbsoluteColumn = "K" | "L" | "N" | "T" | "Z" | "X" | "C" | "M" | "P";
 
     export type AbsoluteCoord = [AbsoluteRow, AbsoluteColumn];
 

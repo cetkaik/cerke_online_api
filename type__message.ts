@@ -108,9 +108,13 @@ namespace type__message {
         dat: WhetherWaterEntryHappened,
     };
 
-    export interface Ret_RandomEntry {
-        "state": "in_waiting_list" | "let_the_game_begin";
+    export type Ret_RandomEntry = {
+        "state": "in_waiting_list" ;
         "access_token": string;
+    } | {
+        "state": "let_the_game_begin";
+        "access_token": string;
+        "is_first_move_my_move": boolean;
     }
 
     export type Ret_RandomPoll = {

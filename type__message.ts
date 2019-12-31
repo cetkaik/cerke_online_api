@@ -1,5 +1,59 @@
 
 namespace type__message {
+    
+    export interface SrcDst {
+        type: "SrcDst";
+        src: AbsoluteCoord;
+        dest: AbsoluteCoord;
+        water_entry_ciurl?: Ciurl;
+    }
+    
+    export interface SrcStepDstFinite {
+        type: "SrcStepDstFinite";
+        src: AbsoluteCoord;
+        step: AbsoluteCoord;
+        dest: AbsoluteCoord;
+        water_entry_ciurl?: Ciurl;
+    }
+    
+    interface MoveToBePolledWithPotentialWaterEntry {
+        type: "NonTamMove";
+        data: SrcDst | SrcStepDstFinite;
+    }
+    
+    export type MoveToBePolled = MoveToBePolledWithPotentialWaterEntry | {
+        type: "NonTamMove",
+        data: {
+            type: "FromHand";
+            color: Color;
+            prof: Profession;
+            dest: AbsoluteCoord;
+        },
+    } | {
+        type: "TamMove"
+        stepStyle: "NoStep";
+        src: AbsoluteCoord;
+        firstDest: AbsoluteCoord;
+        secondDest: AbsoluteCoord;
+    } | {
+        type: "TamMove"
+        stepStyle: "StepsDuringFormer" | "StepsDuringLatter";
+        src: AbsoluteCoord;
+        step: AbsoluteCoord;
+        firstDest: AbsoluteCoord;
+        secondDest: AbsoluteCoord;
+    } | {
+        type: "InfAfterStep";
+        src: AbsoluteCoord;
+        step: AbsoluteCoord;
+        plannedDirection: AbsoluteCoord;
+        stepping_ciurl: Ciurl;
+        finalResult: null /* not yet known */| {
+            dest: AbsoluteCoord;
+            water_entry_ciurl?: Ciurl;
+        };
+    };
+
     export enum Color {
         Kok1, // Red, 赤
         Huok2, // Black, 黒

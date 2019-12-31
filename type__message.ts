@@ -115,6 +115,7 @@ namespace type__message {
         "state": "let_the_game_begin";
         "access_token": string;
         "is_first_move_my_move": boolean;
+        "is_IA_down_for_me": boolean
     }
 
     export type Ret_RandomPoll = {

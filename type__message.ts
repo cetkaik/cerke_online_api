@@ -1,5 +1,4 @@
 
-namespace type__message {
     
     export interface SrcDst {
         type: "SrcDst";
@@ -195,4 +194,3 @@ namespace type__message {
     export type Ret_MainPoll = {legal: true, content: MoveToBePolled | "not yet"} | {legal: false, whyIllegal: string};
     export type Ret_InfPoll = {legal: true, content: MoveToBePolled | "not yet"} | {legal: false, whyIllegal: string};
 
-}

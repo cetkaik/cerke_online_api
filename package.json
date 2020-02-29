@@ -1,0 +1,21 @@
+{
+  "name": "cerke_online_api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "lib/index.js",
+  "typings": "lib/index.d.ts",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sozysozbot/cerke_online_api.git"
+  },
+  "bugs": {
+    "url": "https://github.com/sozysozbot/cerke_online_api/issues"
+  },
+  "homepage": "https://github.com/sozysozbot/cerke_online_api#readme",
+  "devDependencies": {
+    "typescript": "^3.8.3"
+  }
+}

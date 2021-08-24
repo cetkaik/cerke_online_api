@@ -1,6 +1,6 @@
 {
   "name": "cerke_online_api",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
@@ -16,6 +16,6 @@
   },
   "homepage": "https://github.com/sozysozbot/cerke_online_api#readme",
   "devDependencies": {
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.10"
   }
 }

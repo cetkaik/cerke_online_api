@@ -115,8 +115,6 @@
 
     export interface InfAfterStep {
         type: "InfAfterStep";
-        color: Color;
-        prof: Profession;
         src: AbsoluteCoord;
         step: AbsoluteCoord;
         plannedDirection: AbsoluteCoord;

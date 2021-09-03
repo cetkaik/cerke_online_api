@@ -196,6 +196,6 @@
         legal: true, content: "ty mok1" | {is_first_move_my_move: boolean | null} | "not yet"
       } | {legal: false, whyIllegal: string};
 
-    export type Ret_MainPoll = {legal: true, content: MoveToBePolled | "not yet"} | {legal: false, whyIllegal: string};
+    export type Ret_MainPoll = { legal: true; message?: string, content: MoveToBePolled | "not yet" } | { legal: false; whyIllegal: string };
     export type Ret_InfPoll = {legal: true, content: MoveToBePolled | "not yet"} | {legal: false, whyIllegal: string};
 

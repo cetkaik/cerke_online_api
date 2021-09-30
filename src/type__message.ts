@@ -50,6 +50,7 @@
         finalResult: null /* not yet known */| {
             dest: AbsoluteCoord;
             water_entry_ciurl?: Ciurl;
+            thwarted_by_failing_water_entry_ciurl: Ciurl | null
         };
     };
 

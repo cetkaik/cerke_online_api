@@ -147,12 +147,19 @@ import { TacticsKey } from ".";
         ciurl: Ciurl,
     };
 
+    export type RetInfAfterStep = { type: "Err", why_illegal: string } | { type: "Ok", ciurl: Ciurl };
+
     export type WhetherWaterEntryHappened = {
         waterEntryHappened: true,
         ciurl: Ciurl,
     } | {
         waterEntryHappened: false,
     };
+
+    export type RetNormalMove =
+     | { type: "Err", why_illegal: string }
+     | { type: "WithWaterEntry", ciurl: Ciurl }
+     | { type: "WithoutWaterEntry" };
 
     export type Ret_NormalMove = {
         legal: false,
@@ -161,6 +168,11 @@ import { TacticsKey } from ".";
         legal: true,
         dat: WhetherWaterEntryHappened,
     };
+
+    export type RetAfterHalfAcceptance =
+     | { type: "Err", why_illegal: string }
+     | { type: "WithWaterEntry", ciurl: Ciurl }
+     | { type: "WithoutWaterEntry" };
 
     export type Ret_AfterHalfAcceptance = {
         legal: false,
@@ -187,12 +199,28 @@ import { TacticsKey } from ".";
         "is_IA_down_for_me": boolean;
     }
 
+    export type RetRandomPoll = {
+        type: "Err",
+        why_illegal: string,
+    } | {
+        type: "Ok",
+        ret: Ret_RandomEntry,
+    };
+
     export type Ret_RandomPoll = {
         legal: false,
         whyIllegal: string,
     } | {
         legal: true,
         ret: Ret_RandomEntry,
+    };
+
+    export type RetRandomCancel = {
+        type: "Err";
+        why_illegal: string
+    } | {
+        type: "Ok",
+        cancellable: boolean,
     };
 
     export type Ret_RandomCancel = {
@@ -203,9 +231,26 @@ import { TacticsKey } from ".";
         cancellable: boolean,
     };
 
+    export type RetWhetherTyMokPoll = {
+        type: "TyMok" 
+      } | {
+        type: "TaXot", is_first_move_my_move: WhoGoesFirst | null
+      } | {
+        type: "NotYetDetermined"
+      } | {type: "Err", why_illegal: string};
+
     export type Ret_WhetherTyMokPoll = {
         legal: true, content: "ty mok1" | {is_first_move_my_move: boolean | null} | "not yet"
       } | {legal: false, whyIllegal: string};
+
+    export type RetMainPoll = { type: "MoveMade", message?: TacticsKey, content: MoveToBePolled }
+     | { type: "NotYetDetermined" }
+     | { type: "Err", why_illegal: string };
+    
+    export type RetInfPoll = { type: "MoveMade", content: MoveToBePolled } | 
+    { type: "NotYetDetermined" } | 
+    { type: "Err", why_illegal: string};
+
 
     export type Ret_MainPoll = { legal: true; message?: TacticsKey, content: MoveToBePolled | "not yet" } | { legal: false; whyIllegal: string };
     export type Ret_InfPoll = {legal: true, content: MoveToBePolled | "not yet"} | {legal: false, whyIllegal: string};

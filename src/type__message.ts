@@ -160,11 +160,28 @@ export type Ret_RandomEntry = {
     "is_IA_down_for_me": boolean
 }
 
+export type RetRandomEntry = {
+    type: "InWaitingList";
+    access_token: string;
+} | {
+    type: "LetTheGameBegin";
+    access_token: string;
+    is_first_move_my_move: WhoGoesFirst;
+    is_IA_down_for_me: boolean
+}
+
 export type Ret_VsCpuEntry = {
     "state": "let_the_game_begin";
     "access_token": string;
     "is_first_move_my_move": boolean;
     "is_IA_down_for_me": boolean;
+}
+
+export type RetVsCpuEntry = {
+    type: "LetTheGameBegin";
+    access_token: string;
+    is_first_move_my_move: WhoGoesFirst;
+    is_IA_down_for_me: boolean;
 }
 
 export type RetRandomPoll = {

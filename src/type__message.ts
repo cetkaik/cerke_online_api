@@ -150,16 +150,6 @@ export type RetAfterHalfAcceptance =
     | { type: "WithWaterEntry", ciurl: Ciurl }
     | { type: "WithoutWaterEntry" };
 
-export type Ret_RandomEntry = {
-    "state": "in_waiting_list";
-    "access_token": string;
-} | {
-    "state": "let_the_game_begin";
-    "access_token": string;
-    "is_first_move_my_move": boolean;
-    "is_IA_down_for_me": boolean
-}
-
 export type RetRandomEntry = {
     type: "InWaitingList";
     access_token: string;
@@ -168,13 +158,6 @@ export type RetRandomEntry = {
     access_token: string;
     is_first_move_my_move: WhoGoesFirst;
     is_IA_down_for_me: boolean
-}
-
-export type Ret_VsCpuEntry = {
-    "state": "let_the_game_begin";
-    "access_token": string;
-    "is_first_move_my_move": boolean;
-    "is_IA_down_for_me": boolean;
 }
 
 export type RetVsCpuEntry = {
@@ -189,7 +172,7 @@ export type RetRandomPoll = {
     why_illegal: string,
 } | {
     type: "Ok",
-    ret: Ret_RandomEntry,
+    ret: RetRandomEntry,
 };
 
 export type RetRandomCancel = {

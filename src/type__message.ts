@@ -134,9 +134,9 @@ export type WhoGoesFirst = {
     result: boolean,
 }
 
-export type RetTyMok = { type: "Err" } | { type: "Ok" };
+export type RetTyMok = { type: "Err", why_illegal: string } | { type: "Ok" };
 
-export type RetTaXot = { type: "Err" } | { type: "Ok", is_first_move_my_move: WhoGoesFirst | null };
+export type RetTaXot = { type: "Err", why_illegal: string } | { type: "Ok", is_first_move_my_move: WhoGoesFirst | null };
 
 export type RetInfAfterStep = { type: "Err", why_illegal: string } | { type: "Ok", ciurl: Ciurl };
 

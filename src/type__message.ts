@@ -152,17 +152,17 @@ export type RetAfterHalfAcceptance =
 
 export type RetRandomEntry = {
     type: "InWaitingList";
-    access_token: string;
+    session_token: string;
 } | {
     type: "LetTheGameBegin";
-    access_token: string;
+    session_token: string;
     is_first_move_my_move: WhoGoesFirst;
     is_IA_down_for_me: boolean
 }
 
 export type RetVsCpuEntry = {
     type: "LetTheGameBegin";
-    access_token: string;
+    session_token: string;
     is_first_move_my_move: WhoGoesFirst;
     is_IA_down_for_me: boolean;
 }
@@ -199,3 +199,44 @@ export type RetInfPoll = { type: "MoveMade", content: MoveToBePolled } |
 { type: "NotYetDetermined" } |
 { type: "Err", why_illegal: string };
 
+export declare type RetFriendJoinRoom = {
+    type: "Err";
+    why_illegal: string;
+} | {
+    type: "Ok";
+    ret: {
+        type: "LetTheGameBegin";
+        session_token: string;
+        is_first_move_my_move: WhoGoesFirst;
+        is_IA_down_for_me: boolean;
+    };
+};
+
+export declare type RetFriendMakeRoom = {
+    type: "RoomMade";
+    session_token: string;
+	room_id: string;
+	room_key: string;
+}
+
+export declare type RetFriendPoll = {
+    type: "Err";
+    why_illegal: string;
+} | {
+    type: "Ok";
+    ret: {
+        type: "StillAloneInTheRoom";
+    } | {
+        type: "LetTheGameBegin";
+        is_first_move_my_move: WhoGoesFirst;
+        is_IA_down_for_me: boolean;
+    };
+};
+
+export declare type RetFriendDeleteRoom = {
+    type: "Err";
+    why_illegal: string;
+} | {
+    type: "Ok";
+    ret: "RoomIsRevoked";
+};
